@@ -1,3 +1,5 @@
+Makefile.bak
+
 # Object files
 *.o
 *.ko

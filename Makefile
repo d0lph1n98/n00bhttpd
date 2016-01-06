@@ -113,6 +113,10 @@ DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
+AM_V_lt = $(am__v_lt_$(V))
+am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
+am__v_lt_0 = --silent
+am__v_lt_1 = 
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 AM_V_CC = $(am__v_CC_$(V))
@@ -258,7 +262,7 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-n00bhttpd_SOURCES = n00bhttpd.c
+n00bhttpd_SOURCES = ./src/n00bhttpd.c 
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -381,6 +385,20 @@ include ./$(DEPDIR)/n00bhttpd.Po
 #	$(AM_V_CC)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+n00bhttpd.o: ./src/n00bhttpd.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT n00bhttpd.o -MD -MP -MF $(DEPDIR)/n00bhttpd.Tpo -c -o n00bhttpd.o `test -f './src/n00bhttpd.c' || echo '$(srcdir)/'`./src/n00bhttpd.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/n00bhttpd.Tpo $(DEPDIR)/n00bhttpd.Po
+#	$(AM_V_CC)source='./src/n00bhttpd.c' object='n00bhttpd.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o n00bhttpd.o `test -f './src/n00bhttpd.c' || echo '$(srcdir)/'`./src/n00bhttpd.c
+
+n00bhttpd.obj: ./src/n00bhttpd.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT n00bhttpd.obj -MD -MP -MF $(DEPDIR)/n00bhttpd.Tpo -c -o n00bhttpd.obj `if test -f './src/n00bhttpd.c'; then $(CYGPATH_W) './src/n00bhttpd.c'; else $(CYGPATH_W) '$(srcdir)/./src/n00bhttpd.c'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/n00bhttpd.Tpo $(DEPDIR)/n00bhttpd.Po
+#	$(AM_V_CC)source='./src/n00bhttpd.c' object='n00bhttpd.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o n00bhttpd.obj `if test -f './src/n00bhttpd.c'; then $(CYGPATH_W) './src/n00bhttpd.c'; else $(CYGPATH_W) '$(srcdir)/./src/n00bhttpd.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

@@ -1,2 +1,2 @@
 # n00bhttpd
-A simple web server
+A minimal embedded web server. Might have bugs.

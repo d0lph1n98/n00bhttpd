@@ -2,7 +2,7 @@
  * vim:sw=4 ts=4:et sta
  *
  *
- * Copyright (c) 2015, Fakhri Zulkifli <d0lph1n98@yahoo.com>
+ * Copyright (c) 2015, Fakhri Zulkifli <mohdfakhrizulkifli@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -132,6 +132,7 @@ int main(int c, char **v)
             fprintf(fp, "%s", content);
             (void) fflush(fp);
             fputs(content, stdout);
+            
             if ((start = strstr(content, get)))
             {
                 start += strlen(get);
@@ -167,6 +168,7 @@ int main(int c, char **v)
             {
                 strncat(storage, content, sizeof(storage) - 1);
             }
+            
             send(connfd, "HTTP/1.1 200\r\n\r\n", 16, 0);
             send(connfd, storage, sizeof(storage) - 1, 0);
             memset(content, 0, sizeof(content));
